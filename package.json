@@ -40,6 +40,7 @@
     "gruntplugin"
   ],
   "dependencies": {
+    "each-async": "^1.1.0",
     "svgclean": "^0.1.0"
   }
 }

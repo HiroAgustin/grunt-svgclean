@@ -5,7 +5,7 @@
  * Copyright (c) 2014 HiroAgustin
  * Licensed under the MIT license.
  */
-;(function (svgclean)
+;(function (svgclean, eachAsync)
 {
   'use strict';
 
@@ -14,22 +14,35 @@
     grunt.registerMultiTask('svgclean', 'Clean svg', function ()
     {
       var src = ''
-        , dest = '';
+        , dest = ''
+        , done = this.async();
 
-      this.files.forEach(function (file)
-      {
-        src = file.src[0];
-        dest = file.dest;
+      eachAsync(
 
-        if (!grunt.file.exists(src))
-          grunt.log.warn('Source file "' + src + '" not found.');
-        
-        svgclean(src, dest);
+        this.files
 
-        // Print a success message.
-        grunt.log.writeln('File "' + dest + '" created.');
-      });
+      , function (file)
+        {
+          src = file.src[0];
+          dest = file.dest;
+
+          if (!grunt.file.exists(src))
+            grunt.log.warn('Source file "' + src + '" not found.');
+
+          grunt.file.write(dest);
+          svgclean(src, dest);
+
+          // Print a success message.
+          grunt.log.writeln('File "' + dest + '" created.');
+        }
+
+      , function ()
+        {
+          grunt.log.writeln('All done.');
+          done();
+        }
+      );
     });
   };
 
-}(require('svgclean')));
+}(require('svgclean'), require('each-async')));
