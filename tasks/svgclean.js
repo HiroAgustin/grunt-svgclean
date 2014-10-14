@@ -13,8 +13,7 @@
   {
     grunt.registerMultiTask('svgclean', 'Clean svg', function ()
     {
-      var cwd = ''
-        , src = ''
+      var src = ''
         , dest = ''
         , done = this.async();
 
