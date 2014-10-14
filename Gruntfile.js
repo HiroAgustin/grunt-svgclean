@@ -34,13 +34,21 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
   , svgclean: {
 
-      dist: {
+      compile: {
 
-        options: {}
+        files: {
+          'tmp/fixtures/head.svg': 'test/fixtures/head.svg'
+				}
+      }
 
-      , files: {
-          'tmp/head.svg': 'test/images/head.svg'
-        }
+    , multiple: {
+
+        files: [{
+          expand: true
+        , cwd: 'test/fixtures'
+        ,	src: '{,*/}*.svg'
+        ,	dest: 'tmp/fixtures'
+        }]
       }
     }
 

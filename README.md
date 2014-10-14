@@ -19,18 +19,25 @@ grunt.loadNpmTasks('grunt-svgclean');
 
 ## The "svgclean" task
 
-### Overview
+### Usage
 In your project's Gruntfile, add a section named `svgclean` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
   svgclean: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+    compile: {
+      files: {
+        'dist/images/head.svg': 'app/images/head.svg'
+      }
+    }
+  , multiple: {
+      files: [{
+        expand: true
+      , cwd: 'app/images'
+      ,	src: '{,*/}*.svg'
+      ,	dest: 'dist/images'
+      }]
+    }
+  }
 });
 ```

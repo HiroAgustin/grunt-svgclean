@@ -1,7 +1,7 @@
 {
   "name": "grunt-svgclean",
   "description": "Clean svg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/HiroAgustin/grunt-svgclean",
   "author": {
     "name": "HiroAgustin",
@@ -42,5 +42,8 @@
   "dependencies": {
     "each-async": "^1.1.0",
     "svgclean": "^0.1.0"
-  }
+  },
+  "files": [
+    "tasks"
+  ]
 }

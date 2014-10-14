@@ -5,7 +5,7 @@
  * Copyright (c) 2014 HiroAgustin
  * Licensed under the MIT license.
  */
-;(function (svgclean, eachAsync)
+;(function (svgclean, eachAsync, path)
 {
   'use strict';
 
@@ -13,7 +13,8 @@
   {
     grunt.registerMultiTask('svgclean', 'Clean svg', function ()
     {
-      var src = ''
+      var cwd = ''
+        , src = ''
         , dest = ''
         , done = this.async();
 
@@ -45,4 +46,4 @@
     });
   };
 
-}(require('svgclean'), require('each-async')));
+}(require('svgclean'), require('each-async'), require('path')));
