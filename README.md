@@ -1,6 +1,8 @@
 # grunt-svgclean
 
-> Clean svg
+> Cleans SVGs using [svgclean](https://github.com/HiroAgustin/svgclean)
+
+*Issues with the output should be reported on the svgclean [issue tracker](https://github.com/HiroAgustin/svgclean/issues).*
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -41,3 +43,7 @@ grunt.initConfig({
   }
 });
 ```
+
+## License and copyrights
+
+This software is released under the terms of the [MIT license](https://github.com/HiroAgustin/svgclean/blob/master/LICENSE).
